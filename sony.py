@@ -19,10 +19,11 @@ def compose_ir_signal(product, function, repeat):
         data.extend([1 << ((product >> i) & 1), 1])
     data[-1] += 75 - sum(data)
     data = [d * T for d in data]
-    data = data * repeat
+    data *= repeat
     return json.dumps({'format': 'us',
                        'freq': FREQ,
-                       'data': data})
+                       'data': data},
+                      separators=(',', ':'))
 
 
 if __name__ == '__main__':
