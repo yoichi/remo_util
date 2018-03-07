@@ -8,9 +8,10 @@ import requests
 def send_ir(ip_address, signal_format, rest_args):
     data = subprocess.check_output(
         [sys.executable, '-m', signal_format] + rest_args)
-    requests.post('http://{}/messages'.format(ip_address),
-                  data=data,
-                  headers={'X-Requested-With': 'requests'})
+    r = requests.post('http://{}/messages'.format(ip_address),
+                      data=data,
+                      headers={'X-Requested-With': 'requests'})
+    r.raise_for_status()
 
 
 if __name__ == '__main__':
