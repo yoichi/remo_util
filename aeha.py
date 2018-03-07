@@ -31,7 +31,7 @@ if __name__ == '__main__':
     'compose IR signal in AEHA format'
     parser = argparse.ArgumentParser(
         description='compose IR signal for SONY remote controller')
-    parser.add_argument('-r', '--repeat', type=int, default=2)
+    parser.add_argument('-r', '--repeat', type=int, default=4)
     parser.add_argument('-t', '--trailer', type=int, default=75000)
     parser.add_argument('vendor', help='vendor code')
     parser.add_argument('command', nargs='*')
